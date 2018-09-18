@@ -1,0 +1,52 @@
+public class Person {
+	Person next;
+	String name;
+	
+public Person(String s)
+{
+	name = s;
+}
+
+public void setNext(Person p)
+{
+	next = p;
+}
+
+public Person getNext()
+{
+	return next;
+}
+
+public String toString()
+{
+	return name;
+}
+
+public static void main(String[] args)
+{
+/*	Person first = new Person("Josiah");
+	first.setNext(new Person("Diontre"));
+	first.getNext().setNext(new Person("Allen"));
+	first.getNext().getNext().setNext(new Person("Carlos"));
+	first.getNext().getNext().getNext().setNext(new Person("Andrew"));
+*/	//this is too complicated and you should not do this, but it works
+	
+	Person first = new Person("Andrew");
+	
+	Person temp = new Person("Carlos");
+	temp.setNext(first);
+	first = temp;
+	// point game is on point
+	temp = new Person("Allen");
+	temp.setNext(first);
+	first = temp;
+			
+	Person current = first;
+	while (current != null)
+	{
+		System.out.print(current);
+		current = current.next;
+	}
+}
+
+}
